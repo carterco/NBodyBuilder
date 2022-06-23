@@ -8,6 +8,7 @@ class Particle(object):
         self.mass = mass
         self.com = com
         self.accel = np.zeros(3)
+        self.vel = np.zeros(3)
     
     # Return a string representation of a Particle displaying the Particle's mass, COM, and acceleration
     def __str__(self):
@@ -20,6 +21,10 @@ class Particle(object):
     # Set this Particle's acceleration to 0
     def resetAccel(self):
         self.accel = np.zeros(3)
+        
+    # Set this Particle's velocity to to vel
+    def setVel(self, vel):
+        self.vel = vel
     
     # Return the distance between this Particle and another Particle p
     def distTo(self, p):
