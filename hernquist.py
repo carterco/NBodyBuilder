@@ -5,7 +5,7 @@ class Hernquist():
     Randomly draw intial conditions of particles from Hernquist distribution.
     """
 
-    def ___init___(self, a, M):
+    def __init__(self, a, M):
         self.a = a
         self.M = M
     
