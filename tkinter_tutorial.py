@@ -271,7 +271,16 @@ Open Files Dialog Box
 '''
 Slider
 '''
-# SKIPPED
+#def slider():
+root = tk.Tk()
+
+def read_slide(var):
+	n = slider.get()
+
+slider = tk.Scale(root, from_=2, to=10,orient ='horizontal',command = read_slide)
+slider.pack()
+
+root.mainloop()
 
 '''
 Checkboxes
@@ -344,14 +353,14 @@ Zipcode Lookup Form
 '''
 Matplotlib Charts
 '''
-#def plotting():
-root = tk.Tk()
+def plotting():
+	root = tk.Tk()
 
-def graph():
-	house_prices = np.random.normal(200000,25000,5000)
-	plt.hist(house_prices, 50)
-	plt.show()
-myGraph = tk.Button(root,text = "Graph it!", command = graph)
-myGraph.pack()
+	def graph():
+		house_prices = np.random.normal(200000,25000,5000)
+		plt.hist(house_prices, 50)
+		plt.show()
+	myGraph = tk.Button(root,text = "Graph it!", command = graph)
+	myGraph.pack()
 
-root.mainloop()
+	root.mainloop()
