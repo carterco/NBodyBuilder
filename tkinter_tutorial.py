@@ -1,5 +1,7 @@
 import tkinter as tk
-import PIL as ImageTk,Image  # Needs to be pip installed?
+#import PIL as ImageTk,Image  # Needs to be pip installed?
+import numpy as np
+import matplotlib.pyplot as plt
 
 '''
 Intro to Tkinter
@@ -279,7 +281,30 @@ Checkboxes
 '''
 Dropdown Menu
 '''
-# SKIPPED
+def dropdown():
+	root = tk.Tk()
+	root.title('Dropdown Menus')
+
+	def show():
+		myLabel = tk.Label(root, text = clicked.get()).pack()
+
+		options = [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday"
+		]
+		# "clicked" is the variable the chosen option is assigned to
+		clicked = tk.StringVar()
+		# Set default menu item
+		clicked.set(options[0])
+		drop = tk.OptionMenu(root, clicked,*options)
+		drop.pack()
+
+		myButton = tk.Button(root,text = 'Show Selection', command = show).pack()
+
+		root.mainloop()
 
 '''
 Using Databases
@@ -319,4 +344,14 @@ Zipcode Lookup Form
 '''
 Matplotlib Charts
 '''
-# SKIPPED
+#def plotting():
+root = tk.Tk()
+
+def graph():
+	house_prices = np.random.normal(200000,25000,5000)
+	plt.hist(house_prices, 50)
+	plt.show()
+myGraph = tk.Button(root,text = "Graph it!", command = graph)
+myGraph.pack()
+
+root.mainloop()
