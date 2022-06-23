@@ -1,4 +1,5 @@
 import tkinter as tk
+import PIL as ImageTk,Image  # Needs to be pip installed?
 
 '''
 Intro to Tkinter
@@ -21,7 +22,6 @@ def intro():
 '''
 Positioning with Tkinter's Grid System
 '''
-# The grid system is set up just like a 2D array (start index 0 row/col)
 def grid_sys():
 	
 	root = tk.Tk()
@@ -30,6 +30,7 @@ def grid_sys():
 	myLabel2 = tk.Label(root, text="My name is Jen!")
 
 	# Place widgets on a grid with row and column indices
+	# The grid system is set up just like a 2D array (start index 0 row/col)
 	# Note that indices are relative to each other. You cannot use this method to space widgets apart from each other.
 	# If there are empty rows/columns, tkinter will simply ignore them and place widgets in only the correct relative positions.
 	myLabel1.grid(row = 0, column = 0)
@@ -45,7 +46,6 @@ def grid_sys():
 '''
 Creating Buttons
 '''
-
 def create_button():
 	'''
 	Options:
@@ -211,3 +211,112 @@ def calculator_ex():
 	div.grid(row = 6, column = 2)
 
 	root.mainloop()
+
+'''
+Icons, Images, and Exit Buttons
+'''
+def icons_images_exits():
+	root = tk.Tk()
+	# Adds title to window
+	root.title('Learn Icons, Images, and Exits')
+	#root.iconbitmap('') # Need .ico icon file
+
+	# Using images
+	#img = ImageTk.PhotoImage(Image.open('')) # Need image file
+	#label = tk.Label(image = img)
+	#label.pack()
+
+	# Add quit button widget
+	quit = tk.Button(root,text='Exit',command = root.quit)
+	quit.pack()
+	root.mainloop()
+
+'''
+Building Image Viewer App
+'''
+# SKIPPED
+
+'''
+Status Bar
+'''
+# SKPPED
+
+'''
+Frames
+'''
+# SKIPPED
+
+'''
+Radio Buttons
+'''
+# SKIPPED
+
+'''
+Message Boxes
+'''
+# SKIPPED
+
+'''
+New Windows
+'''
+# SKIPPED
+
+'''
+Open Files Dialog Box
+'''
+# SKIPPED
+
+'''
+Slider
+'''
+# SKIPPED
+
+'''
+Checkboxes
+'''
+# SKIPPED
+
+'''
+Dropdown Menu
+'''
+# SKIPPED
+
+'''
+Using Databases
+'''
+# SKIPPED
+
+'''
+Building out GUI for Database App
+'''
+# SKIPPED
+
+'''
+Delete Record from Database
+'''
+# SKIPPED
+
+'''
+Update Record with SQLite
+'''
+# SKIPPED
+
+'''
+Build Weather App
+'''
+# SKIPPED
+
+'''
+Change Weather App Colors
+'''
+# SKIPPED
+
+'''
+Zipcode Lookup Form
+'''
+# SKIPPED
+
+'''
+Matplotlib Charts
+'''
+# SKIPPED
