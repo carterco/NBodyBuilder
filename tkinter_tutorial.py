@@ -40,3 +40,34 @@ def grid_sys():
 	# myLabel2 = tk.Label(root, text="My name is Jen!").grid(row = 1, column = 0)
 
 	root.mainloop()
+
+
+'''
+Creating Buttons
+'''
+
+def create_button():
+	'''
+	Options:
+		state:
+			DISABLED: greys out button so it is not clickable
+		padx: (int) alters width of button
+		pady: (int) alters height of button
+		command: (function) function of button
+		fg: (str) foreground (text) color, hex codes also work
+		bg: (str) background (button) color, hex codes also work
+	'''
+	root = tk.Tk()
+
+	# Function to define what the button does
+	def myClick():
+		myLabel = tk.Label(root, text='Look! I clicked a Button!!')
+		myLabel.pack()
+
+	# Button widget
+	myButton = tk.Button(root, text="Click Me!", command = myClick)
+
+	# Pack button
+	myButton.pack()
+
+	root.mainloop()
