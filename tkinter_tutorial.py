@@ -71,3 +71,39 @@ def create_button():
 	myButton.pack()
 
 	root.mainloop()
+
+
+'''
+Input Fields
+'''
+
+def input_box():
+
+	'''
+	Options:
+		width: (int) width of box
+		boarderwidth: (int) makes box boarder wider
+		fg: (str) foreground (text) color, hex codes also work
+		bg: (str) background (button) color, hex codes also work
+
+	'''
+	root = tk.Tk()
+
+	# Entry widget
+	entry = tk.Entry(root)
+	entry.pack()
+
+	# Puts default text inside textbox
+	e.insert(0, "Name")
+
+	# Function to define what the button does
+	def myClick():
+		hello = "Hello " + entry.get()
+		myLabel = tk.Label(root, text=hello)
+		myLabel.pack()
+
+	# Button widget
+	myButton = tk.Button(root, text="Enter your name:", command = myClick)
+	myButton.pack()
+
+	root.mainloop()
