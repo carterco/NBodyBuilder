@@ -19,7 +19,7 @@ def output_files(times):
         y = [particle[2] for particle in t]
         z = [particle[3] for particle in t]
 
-        d = {'m': m, 'x': m, 'y': m, 'z': m}
+        d = {'m': m, 'x': x, 'y': y, 'z': z}
         df = pd.DataFrame(data=d)
         df.to_csv('snapshot_'+str(counter),index=False)
         counter += 1
