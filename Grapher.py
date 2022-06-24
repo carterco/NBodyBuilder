@@ -1,0 +1,43 @@
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+import numpy as np
+import NBodyBuilder as nb
+
+def driver(numParticles,ic,gravity,integrator,time,dt):
+    data = nb.NBodyBuilder(numParticles,ic,gravity,integrator,time,dt).history
+    times = np.arange(0,time+dt,dt)
+    scatter_plot_2d(data,times)
+
+def scatter_plot_2d(data,time):
+
+    plt.rcParams["figure.figsize"] = [7.50, 3.50]
+    plt.rcParams["figure.autolayout"] = True
+
+    '''steps = 50
+    nodes = 100
+    positions = []
+    solutions = []
+
+    for i in range(steps):
+        positions.append(np.random.rand(2, nodes))
+        solutions.append(np.random.random(nodes))'''
+
+    fig, ax = plt.subplots()
+
+    def animate(i):
+        fig.clear()
+        ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(0, 1), ylim=(0, 1))
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+        ax.set_title('t = ' + str(time[i]))
+        s = ax.scatter(data[i,:,1], data[i,:,2], s=50, marker="o", edgecolor='black')
+
+    ani = animation.FuncAnimation(fig, animate, interval=100, frames=range(len(data)),repeat_delay = 3000)
+    fig.tight_layout()
+    plt.show()
+
+
+'''data = np.random.rand(10,3,4)
+time = np.arange(0,10,1)'''
