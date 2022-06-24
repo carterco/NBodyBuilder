@@ -3,8 +3,10 @@ import Particle as part
 import DirectForce as df
 import BH as bh
 
-# The TimeStepper class evolves a set of Particles through time to simulate N gravitationally-interacting particles
 class TimeStepper(object):
+    ''' This class evolves a set of Particles through time to simulate N gravitationally-interacting particles.
+    
+    '''
     
     # Given an array of Particles, an end time, a time step dt, and an integration scheme, evolve the Particles through time and save the history of particle positions (and masses) in a 3D array
     def __init__(self, particles, time, dt, integrator, gravity):
@@ -37,16 +39,24 @@ class TimeStepper(object):
                 self.history[t,i] = np.array([particles[i].mass, 
                                               particles[i].com[0], particles[i].com[1], particles[i].com[2]]) 
         
-    # Display the 3D array containing the history of the particle positions 
     def __repr__(self):
+        ''' Display the 3D array containing the history of the particle positions.
+
+        Returns:
+            s (string): String showing history of particle positions (3D)
+        '''
+
         s = "\n Displaying [mass, x, y, z] for each particle for each time step: \n\n"
         for t in range(self.history.shape[0]):
             s += "time: {:.2f}, particles: {} \n\n".format(self.dt * t, self.history[t])
             
         return s
-        
-    # Evolve the particles by one time step using the forward-Euler method    
+            
     def euler(self):
+        ''' Evolves the particles by one time step using the forward-Euler method.
+        
+        '''
+
         for p in self.particles:
             
             dv = self.dt * p.accel
@@ -56,8 +66,11 @@ class TimeStepper(object):
             
             p.resetAccel()
 
-    # Evolve the particles by one time step using the Euler-Cromer method 
     def euler_cromer(self):
+        ''' Evolves the particles by one time step using the Euler-Cromer method.
+        
+        '''
+
         for p in self.particles:
             
             dv = self.dt * p.accel
@@ -68,6 +81,8 @@ class TimeStepper(object):
             p.resetAccel()
 
 def main():
+    #### !!!! TEST !!!! ####
+
     p1 = part.Particle(1, np.array([0,0,0]))
     p2 = part.Particle(10, np.array([3,3,0]))
     
