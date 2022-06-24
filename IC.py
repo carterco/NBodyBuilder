@@ -7,10 +7,14 @@ class IC(object):
     ''' Generated particle array given number of particles randomly OR using Hernquist distribution. 
     
     Args:
-        numParticles (integer):
-        ic ():
-        seed (integer):
-        boxSize ()'''
+        numParticles (integer): Number of particles
+        ic (?): ?
+        twoD (boolean): True for 2D, false for ?
+        seed (integer): Random number generator seed
+        boxSize (integer or float): Size of the simulation box
+        hern_a (integer or float): Hernquist scale radius
+        hern_m (integer): Hernquist mass
+        '''
     
     def __init__(self, numParticles, ic, twoD = True, seed=12345, boxSize = 50, hern_a = 10, hern_m = 10):
         
@@ -25,6 +29,11 @@ class IC(object):
             
             
     def __repr__(self):
+        ''' ???
+
+        Returns:
+            s (string): ?
+        '''
         
         s = ""
         for p in self.particles:
@@ -33,7 +42,18 @@ class IC(object):
         return s
     
     def randParticles(self, numParticles, boxSize, seed, twoD = True):
-        
+        ''' Returns the number particles specified by numParticles, randomly generated with the random seed.
+
+        Args:
+            numParticles (integer): Number of particles
+            boxSize (integer or float): Size of the simulation box
+            seed (integer): Random number generator seed
+            twoD (boolean): True for 2D, false for ?
+
+        Returns:
+            particles (list): A list of Particles 'p'
+        '''
+
         particles = []
         generator = rand.default_rng(seed)
         randMasses = generator.random(numParticles)
@@ -50,9 +70,9 @@ class IC(object):
         return particles
     
 def main():
+    #### !!!! TEST !!!! ####
     ic = IC(10, "random")
     print(ic)
-    
     
     
 if __name__ == "__main__":
