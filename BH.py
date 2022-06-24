@@ -59,7 +59,7 @@ class BH(object):
         
         # if the current Node is a leaf or satisfies the opening angle criterion, compute the Newtonian (1/r^2) force on Particle p due to the particles in Node n
         if ((n.isLeaf()) or (n.sideLength < self.openAngle * dist)):
-            accel = p.newtonAccel(n.multipole)
+            accel = p.newtonAccelSmooth(n.multipole, 0.1, 5)
             totAccel += accel
         
         # if the current Node does not satisfy the opening angle criterion, split the Node and recurse

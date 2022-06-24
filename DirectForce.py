@@ -14,7 +14,7 @@ class DirectForce(object):
         
         for particle in self.particles:
             if (particle != p):
-                accel = p.newtonAccel(particle)
+                accel = p.newtonAccelSmooth(particle, 0.1, 5)
                 totAccel += accel
         
         return totAccel
