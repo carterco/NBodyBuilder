@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 root = tk.Tk()
 root.title('NBodyBuilder')
+#root.iconbitmap("./NBodyBuilder.ico") # Need .ico icon file
 #root.geometry('400x250')
 
 
