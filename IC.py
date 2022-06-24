@@ -4,6 +4,13 @@ import Particle as part
 import Hernquist_IC as hern
 
 class IC(object):
+    ''' Generated particle array given number of particles randomly OR using Hernquist distribution. 
+    
+    Args:
+        numParticles (integer):
+        ic ():
+        seed (integer):
+        boxSize ()'''
     
     def __init__(self, numParticles, ic, seed=12345, boxSize = 50, hern_a = 10, hern_m = 10):
         
