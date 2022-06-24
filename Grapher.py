@@ -27,12 +27,12 @@ def scatter_plot_2d(data,time):
     def animate(i):
         fig.clear()
         ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(0, 1), ylim=(0, 1))
-        ax.set_xlim(0, 1)
-        ax.set_ylim(0, 1)
+        ax.set_xlim(-100, 100)
+        ax.set_ylim(-100, 100)
         ax.set_xlabel('x')
         ax.set_ylabel('y')
         ax.set_title('t = ' + str(time[i]))
-        s = ax.scatter(data[i,:,1], data[i,:,2], s=50, marker="o", edgecolor='black')
+        s = ax.scatter(data[i,:,1], data[i,:,2], s=25, marker="o", edgecolor='black')
 
     ani = animation.FuncAnimation(fig, animate, interval=100, frames=range(len(data)),repeat_delay = 3000)
     fig.tight_layout()

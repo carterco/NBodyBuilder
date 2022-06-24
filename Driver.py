@@ -25,6 +25,8 @@ def gui():
 	def show_solver(var):
 		global S
 		S = solver.get()
+		if S == "Barnes-Hut": S = "BH"
+		if S == "Direct Force": S = "direct"
 
 	options_solver = [
 		"Barnes-Hut",
@@ -41,6 +43,8 @@ def gui():
 	def show_dist(var):
 		global D
 		D = dist.get()
+		if D == "Hernquist": D = "hernquist"
+		if D == "Random": D = "random"
 
 	options_dist = [
 		"Hernquist",
@@ -57,6 +61,9 @@ def gui():
 	def show_step(var):
 		global I
 		I = step.get()
+		if I == "Euler": I = "euler"
+		if I == "Euler-Cromer": I = "euler_cromer"
+		if I == "Leapfrog": I = "leapfrog"
 
 	options_step = [
 		"Euler",
@@ -73,7 +80,7 @@ def gui():
 
 	def show_timestep():
 		global DT
-		DT = dt.get() 
+		DT = float(dt.get())
 	dt = tk.Entry(root)
 	# Puts default text inside textbox
 	dt.insert(0, "0.01")
@@ -86,7 +93,7 @@ def gui():
 
 	def show_time():
 		global T
-		T = dt.get() 
+		T = float(t.get())
 	t = tk.Entry(root)
 	# Puts default text inside textbox
 	t.insert(0, "1")
@@ -96,7 +103,7 @@ def gui():
 
 	# Make button to plot result
 	def graph():
-		Grapher.driver(numParticles=N, ic=D, gravity=S, integrator=D, time=T, dt=DT)
+		Grapher.driver(numParticles=N, ic=D, gravity=S, integrator=I, time=T, dt=DT)
 
 	plot = tk.Button(root,text = "Run and Plot", command = graph)
 
@@ -120,6 +127,7 @@ def gui():
 
 
 	root.mainloop()
+	print(D,I,S)
 
 
 def non_gui():
@@ -135,7 +143,7 @@ def non_gui():
 	print("Enter a set of initial conditions.  Options are 'Hernquist' or 'Random'.")
 	while True:
 		D = input()
-		if D!='Hernquist' or D!='Random':
+		if D!='Hernquist' and D!='Random':
 			print("Please enter either 'Hernquist' or 'Random'.")
 		else:
 			break
@@ -143,7 +151,7 @@ def non_gui():
 	print("Enter a gravity solver.  Options are 'Barnes-Hut' or 'Direct Force'.")
 	while True:
 		S = input()
-		if S!='Barnes-Hut' or S!='Direct Force':
+		if S!='Barnes-Hut' and S!='Direct Force':
 			print("Please enter either 'Barnes-Hut' or 'Direct Force'.")
 		else:
 			break
@@ -151,7 +159,7 @@ def non_gui():
 	print("Enter an integrator.  Options are 'Euler' or 'Euler-Cromer' or 'Leapfrog'.")
 	while True:
 		I = input()
-		if I!='Euler' or I!='Euler-Cromer' or I!='Leapfrog':
+		if I!='Euler' and I!='Euler-Cromer' and I!='Leapfrog':
 			print("Please enter either 'Euler' or 'Euler-Cromer' or 'Leapfrog'")
 		else:
 			break
@@ -159,7 +167,7 @@ def non_gui():
 	print("Enter a final time:")
 	while True:
 		T = input()
-		if not T.isnumeric() or T<=0:
+		if not T.isnumeric() or float(T)<=0:
 			print("Please enter a positive integer or a float")
 		else:
 			break
@@ -167,9 +175,9 @@ def non_gui():
 	print("Enter a time step:")
 	while True:
 		DT = input()
-		if not DT.isnumeric() or DT<=0 or DT < T:
+		if not DT.isnumeric() or float(DT)<=0 or float(DT) > float(T):
 			print("Please enter a positive integer or a float that is less than the final time.")
 		else:
 			break
 
-	Grapher.driver(numParticles=N, ic=D, gravity=S, integrator=I, time=T, dt=DT)
+	Grapher.driver(numParticles=int(N), ic=D, gravity=S, integrator=I, time=float(T), dt=float(DT))
