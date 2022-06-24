@@ -1,15 +1,28 @@
 import numpy as np
 import Particle as part
 
-# The DirectForce class implements an O(N^2) gravity solver that directly computes the Newtonian (1/r^2) force/acceleration between each pair of particles
+''' The DirectForce class implements an O(N^2) gravity solver that directly computes the Newtonian (1/r^2) force/acceleration between each pair of particles.
+
+    Args: 
+        particles (array): array of particles
+'''
+
 class DirectForce(object):
     
     # Given an array of Particles, instantiate a DirectForce object
     def __init__(self, particles):
         self.particles = particles
         
-    # Compute the acceleration of Particle p induced by all other particles in the simulation
     def computeAccel(self, p):
+        ''' Computes the acceleration of Particle p induced by all other particles in the simulation.
+
+        Args:
+            p (?): ?
+
+        Returns:
+            totalAccel (?): Total acceleration felt by Particle p from all other particles
+        '''
+
         totAccel = np.zeros(3)
         
         for particle in self.particles:
@@ -19,15 +32,17 @@ class DirectForce(object):
         
         return totAccel
     
-    # Compute the pairwise forces/accelerations for all Particles in the simulation
     def computeAllAccels(self):
-        
+        ''' Computes the pairwise forces/accelerations for all Particles in the simulation.
+        '''
+
         for p in self.particles:
             accel = self.computeAccel(p)
             p.setAccel(accel)
             
 
 def main():
+    #### !!!!!! TEST !!!!!! ####
     print("Hello World!")
         
     p1 = part.Particle(2, np.array([0,0,0]))
