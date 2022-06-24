@@ -12,16 +12,16 @@ class IC(object):
         seed (integer):
         boxSize ()'''
     
-    def __init__(self, numParticles, ic, seed=12345, boxSize = 50, hern_a = 10, hern_m = 10):
+    def __init__(self, numParticles, ic, twoD = True, seed=12345, boxSize = 50, hern_a = 10, hern_m = 10):
         
         if (ic == "random"):
-            self.particles = self.randParticles(numParticles, boxSize, seed)
+            self.particles = self.randParticles(numParticles, boxSize, seed, twoD)
         
         elif (ic == "hernquist"):
             self.particles = hern.Hernquist(numParticles, hern_a, hern_m)
             
         else:
-            self.particles = self.randParticles(numParticles, boxSize, seed)
+            self.particles = self.randParticles(numParticles, boxSize, seed, twoD)
             
             
     def __repr__(self):
@@ -32,7 +32,7 @@ class IC(object):
             
         return s
     
-    def randParticles(self, numParticles, boxSize, seed):
+    def randParticles(self, numParticles, boxSize, seed, twoD = True):
         
         particles = []
         generator = rand.default_rng(seed)
@@ -42,6 +42,7 @@ class IC(object):
         for i in range(numParticles):
             mass = 10 * randMasses[i]
             com = boxSize * randCOMS[i] - boxSize/2.
+            if (twoD): com[2] = 0
             
             p = part.Particle(mass, com)
             particles.append(p)
