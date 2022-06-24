@@ -80,7 +80,7 @@ class Node(object):
         elif ((x <= x0) and (y <= y0) and (z > z0)): 
             return 1, np.array([x0 - self.sideLength/4., y0 - self.sideLength/4., z0 + self.sideLength/4.])
         elif ((x <= x0) and (y > y0) and (z <= z0)): 
-            return 2, np.array([x0 - self.sideLength/4., y0 + self.sideLength/4., z0 - self.cellCentersideLength/4.])
+            return 2, np.array([x0 - self.sideLength/4., y0 + self.sideLength/4., z0 - self.sideLength/4.])
         elif ((x > x0) and (y <= y0) and (z <= z0)): 
             return 3, np.array([x0 + self.sideLength/4., y0 - self.sideLength/4., z0 - self.sideLength/4.])
         elif ((x <= x0) and (y > y0) and (z > z0)): 
