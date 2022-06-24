@@ -67,7 +67,7 @@ class IC(object):
             p = part.Particle(mass, com)
             particles.append(p)
             
-        return particles
+        return np.array(particles)
     
 def main():
     #### !!!! TEST !!!! ####
