@@ -3,8 +3,9 @@ from numpy import random
 import Particle as part
 
 class Hernquist(object):
-    """Hernquist class
+    """ Hernquist class
     Randomly draw intial conditions of particles from Hernquist distribution.
+
     Args:
         a (float): Scale radius (See Binney and Tremaine Eqn. 2.66)
         M (float): Total mass
@@ -35,10 +36,11 @@ class Hernquist(object):
         Returns:
             array: Cumulative distribution function for the Hernquist distribution
         """
+        
         return  self.M * np.power(3*y/(4*np.pi), 2./3) * np.power(self.a + np.power(3*y/(4*np.pi), 1./3), -2)
     
     def invHern(self, x):
-        """Inverse of the cumulative distribution function for the Hernquist distribution.
+        """ Inverse of the cumulative distribution function for the Hernquist distribution.
         
         Agrs: 
             x ():
@@ -46,36 +48,40 @@ class Hernquist(object):
         Returns:
             array: Inverse of the cumulative distribution function
         """
+
         return 4*np.pi/3. * np.power(self.a,3) *np.power(x,1.5) * np.power(np.power(self.M,1./3) - np.power(x,0.5), -3)
     
     def sampleRadius(self):
-        """Draw a random radius from the Hernquist distribution.
+        """ Draw a random radius from the Hernquist distribution.
         
         Returns:
             array(?): 
         """
+
         randX = random.rand()
         y = self.invHern(randX)
         
         return np.power(3*y/(4*np.pi), 1./3)
     
     def samplePointSphere(self):
-        """Draw a random point (in spherical coordinates) from the Hernquist distribution.
+        """ Draw a random point (in spherical coordinates) from the Hernquist distribution.
         
         Returns:
             (3) arrays: randR (), randPhi (), randTheta ()
         """
+
         randR = self.sampleRadius()
         randPhi = 2*np.pi * random.rand() 
         randTheta = np.pi * random.rand()
         return randR, randPhi, randTheta
 
     def samplePointCart(self):
-        """Draw a random point (in Cartesian coordinates) from the Hernquist distribution.
+        """ Draw a random point (in Cartesian coordinates) from the Hernquist distribution.
         
         Returns:
             (3) arrays: x (array of x-positions), y (array of y-positions), z (array of z-positions)
         """
+
         randPointSphere = self.samplePointSphere()
         r = randPointSphere[0]
         phi = randPointSphere[1]
@@ -88,7 +94,7 @@ class Hernquist(object):
         return np.array([x, y, z])
 
     def generateHernquist(self):
-        """Sample numParticles Particles from a Hernquist distribution.
+        """ Sample numParticles Particles from a Hernquist distribution.
         Args:
             numParticles (integer): How many particles to draw from the distribution
             
@@ -104,7 +110,7 @@ class Hernquist(object):
         return np.array(particles)
     
 def main():
-    
+    #### !!!! TEST !!!! ####
     h = Hernquist(10, 10, 10)
     print(h)
     

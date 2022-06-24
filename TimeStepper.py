@@ -5,7 +5,6 @@ import BH as bh
 
 class TimeStepper(object):
     ''' This class evolves a set of Particles through time to simulate N gravitationally-interacting particles.
-    
     '''
     
     # Given an array of Particles, an end time, a time step dt, and an integration scheme, evolve the Particles through time and save the history of particle positions (and masses) in a 3D array
@@ -54,7 +53,6 @@ class TimeStepper(object):
             
     def euler(self):
         ''' Evolves the particles by one time step using the forward-Euler method.
-        
         '''
 
         for p in self.particles:
@@ -68,7 +66,6 @@ class TimeStepper(object):
 
     def euler_cromer(self):
         ''' Evolves the particles by one time step using the Euler-Cromer method.
-        
         '''
 
         for p in self.particles:

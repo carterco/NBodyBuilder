@@ -4,7 +4,6 @@ import Particle as part
 # 
 class Node(object):
     ''' This class defines the elements that comprise the octree required for the Barnes-Hut algorithm.
-    
     '''
     
     # Given an array of children Nodes, a Particle object storing a set of multipole moments, the side length of a grid cell, and the center of the grid cell, instantiate the corresponding Node object
@@ -19,7 +18,6 @@ class Node(object):
 
         Returns:
             string: Displays Node's enclosed mass, COM, and cell center
-
         '''
 
         return "(mass: {}, COM: {}, center: {})".format(self.multipole.mass, self.multipole.com, self.cellCenter)
@@ -29,7 +27,6 @@ class Node(object):
         
         Args:
             multipole (?): Multipole moments associated with this Node
-
         '''
 
         self.multipole = multipole
@@ -40,7 +37,6 @@ class Node(object):
         
             Args:
                 sideLength (integer or float): Side length of this Node's grid cell
-
         '''
 
         self.sideLength = sideLength
@@ -50,8 +46,8 @@ class Node(object):
         
             Args:
                 cellCenter (integer or float): Cell center of this Node's grid cell
-
         '''
+
         self.cellCenter = cellCenter
     
     def isLeaf(self):
@@ -59,7 +55,6 @@ class Node(object):
 
         Returns:
             ?: ?
-
         '''
 
         return all(c == 0 for c in self.children)
@@ -75,7 +70,6 @@ class Node(object):
             n (?): Node n
         Returns:
              array: Position of Node n's center of mass relative to the current Node's cell center (why 7?)
-
         '''
 
         x, y, z = n.multipole.com
@@ -107,7 +101,6 @@ class Node(object):
 
         Returns:
             ?: ?
-
         '''
         
         newOct, newCenter = self.relPosition(child)  # find the position of the child Node relative to the current Node
@@ -142,7 +135,6 @@ class Node(object):
         
         Returns:
             ?: ?
-
         '''
         
         if (self.isLeaf()):
@@ -160,7 +152,7 @@ class Node(object):
         
 def main():
     #### !!!! TEST !!!! ####
-    
+
     p1 = part.Particle(1, np.array([-1,1,1]))
     p2 = part.Particle(2, np.array([1,1,1]))
     p3 = part.Particle(3, np.array([49,49,49]))
