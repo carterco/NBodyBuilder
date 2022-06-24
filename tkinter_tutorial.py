@@ -271,16 +271,16 @@ Open Files Dialog Box
 '''
 Slider
 '''
-#def slider():
-root = tk.Tk()
+def slider():
+	root = tk.Tk()
 
-def read_slide(var):
-	n = slider.get()
+	def read_slide(var):
+		n = slider.get()
 
-slider = tk.Scale(root, from_=2, to=10,orient ='horizontal',command = read_slide)
-slider.pack()
+	slider = tk.Scale(root, from_=2, to=10,orient ='horizontal',command = read_slide)
+	slider.pack()
 
-root.mainloop()
+	root.mainloop()
 
 '''
 Checkboxes
@@ -297,23 +297,23 @@ def dropdown():
 	def show():
 		myLabel = tk.Label(root, text = clicked.get()).pack()
 
-		options = [
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday"
-		]
-		# "clicked" is the variable the chosen option is assigned to
-		clicked = tk.StringVar()
-		# Set default menu item
-		clicked.set(options[0])
-		drop = tk.OptionMenu(root, clicked,*options)
-		drop.pack()
+	options = [
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday"
+	]
+	# "clicked" is the variable the chosen option is assigned to
+	clicked = tk.StringVar()
+	# Set default menu item
+	clicked.set(options[0])
+	drop = tk.OptionMenu(root, clicked,*options)
+	drop.pack()
 
-		myButton = tk.Button(root,text = 'Show Selection', command = show).pack()
+	myButton = tk.Button(root,text = 'Show Selection', command = show).pack()
 
-		root.mainloop()
+	root.mainloop()
 
 '''
 Using Databases
