@@ -1,5 +1,5 @@
 import numpy as np
-import Particle as part
+import NBodyBuilder.Particle as part
 
 # 
 class Node(object):

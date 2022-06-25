@@ -1,12 +1,12 @@
 import numpy as np
 import sys
-import IC
-import TimeStepper
-import BH
-import DirectForce
-import Particle as part
+import NBodyBuilder.IC
+import NBodyBuilder.TimeStepper
+import NBodyBuilder.BH
+import NBodyBuilder.DirectForce
+import NBodyBuilder.Particle as part
 
-class NBodyBuilder(object):
+class NBodyBuilderClass(object):
     
     def __init__(self, numParticles, ic, gravity, integrator, time, dt):
         self.numParticles = numParticles
@@ -30,7 +30,7 @@ class NBodyBuilder(object):
     
 def main():
     
-    nb = NBodyBuilder(3, "random", "direct", "euler_cromer", 10, 1)
+    nb = NBodyBuilderClass(3, "random", "direct", "euler_cromer", 10, 1)
     
     print(nb)
     

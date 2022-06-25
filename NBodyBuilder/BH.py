@@ -1,6 +1,6 @@
 import numpy as np
-import Particle as part
-import Node as node
+import NBodyBuilder.Particle as part
+import NBodyBuilder.Node as node
 
 class BH(object):
     ''' The BH class implements the Barnes-Hut algorithm to compute the gravitational interactions between an arbitrary number of particles.

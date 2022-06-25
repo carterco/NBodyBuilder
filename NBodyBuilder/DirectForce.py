@@ -1,5 +1,5 @@
 import numpy as np
-import Particle as part
+import NBodyBuilder.Particle as part
 
 ''' The DirectForce class implements an O(N^2) gravity solver that directly computes the Newtonian (1/r^2) force/acceleration between each pair of particles.
 

@@ -1,7 +1,7 @@
 import numpy as np
 import numpy.random as rand
-import Particle as part
-import Hernquist_IC as hern
+import NBodyBuilder.Particle as part
+import NBodyBuilder.Hernquist_IC as hern
 
 class IC(object):
     ''' Generated particle array given number of particles randomly OR using Hernquist distribution. 

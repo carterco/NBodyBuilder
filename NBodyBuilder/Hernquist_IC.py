@@ -1,6 +1,6 @@
 import numpy as np
 from numpy import random
-import Particle as part
+import NBodyBuilder.Particle as part
 
 class Hernquist(object):
     """ Hernquist class

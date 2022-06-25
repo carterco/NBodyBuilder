@@ -1,7 +1,7 @@
 import numpy as np
-import Particle as part
-import DirectForce as df
-import BH as bh
+import NBodyBuilder.Particle as part
+import NBodyBuilder.DirectForce as df
+import NBodyBuilder.BH as bh
 
 class TimeStepper(object):
     ''' This class evolves a set of Particles through time to simulate N gravitationally-interacting particles.

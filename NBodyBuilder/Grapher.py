@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
-import NBodyBuilderClass as nb
+import NBodyBuilder.NBodyBuilderClass as nb
 
 def driver(numParticles,ic,gravity,integrator,time,dt):
     """Run NBodyBuilder
