@@ -16,7 +16,7 @@ def driver(numParticles,ic,gravity,integrator,time,dt):
         time (float): total time to run simulation
         df (float): time step for integrator
     """
-    data = nb.NBodyBuilder(numParticles,ic,gravity,integrator,time,dt).history
+    data = nb.NBodyBuilderClass(numParticles,ic,gravity,integrator,time,dt).history
     times = np.arange(0,time+dt,dt)
     scatter_plot_2d(data,times)
 
