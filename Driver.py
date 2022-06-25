@@ -5,6 +5,10 @@ from matplotlib.animation import FuncAnimation
 import Grapher
 
 def gui():
+	"""GUI
+	
+	Runs NBodyBuilder driver with interactive GUI
+	"""
 	root = tk.Tk()
 	root.title('NBodyBuilder')
 	#root.iconbitmap("./NBodyBuilder.ico") # Need .ico icon file
@@ -131,6 +135,10 @@ def gui():
 
 
 def non_gui():
+	"""Non-GUI
+
+	Runs NBodyBuilder driver with interactive text input
+	"""
 
 	print("Enter Number of Particles between 2 and 100:")
 	while True:

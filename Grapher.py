@@ -4,11 +4,31 @@ import numpy as np
 import NBodyBuilder as nb
 
 def driver(numParticles,ic,gravity,integrator,time,dt):
+    """Run NBodyBuilder
+
+    Runs NBodyBuilder and animates results
+
+    Args:
+        numParticles (int): integer number of particles to use in simulation
+        ic (str): name of initial conditions
+        gravity (str): name of gravity solver
+        integrator (str): name of integration method
+        time (float): total time to run simulation
+        df (float): time step for integrator
+    """
     data = nb.NBodyBuilder(numParticles,ic,gravity,integrator,time,dt).history
     times = np.arange(0,time+dt,dt)
     scatter_plot_2d(data,times)
 
 def scatter_plot_2d(data,time):
+    """Animated scatter plot
+
+    Animates data in scatter plot over time.
+
+    Args:
+        data (array): 3D array containing time slices on the first axis, particles on the second axis, and [mass, x-position, y-position, z-position] on the third axis
+        time (array): 1D array of time values
+    """
 
     plt.rcParams["figure.figsize"] = [7.50, 3.50]
     plt.rcParams["figure.autolayout"] = True
