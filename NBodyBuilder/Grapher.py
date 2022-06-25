@@ -33,15 +33,6 @@ def scatter_plot_2d(data,time):
     plt.rcParams["figure.figsize"] = [7.50, 3.50]
     plt.rcParams["figure.autolayout"] = True
 
-    '''steps = 50
-    nodes = 100
-    positions = []
-    solutions = []
-
-    for i in range(steps):
-        positions.append(np.random.rand(2, nodes))
-        solutions.append(np.random.random(nodes))'''
-
     fig, ax = plt.subplots()
 
     def animate(i):
@@ -58,6 +49,3 @@ def scatter_plot_2d(data,time):
     fig.tight_layout()
     plt.show()
 
-
-'''data = np.random.rand(10,3,4)
-time = np.arange(0,10,1)'''
