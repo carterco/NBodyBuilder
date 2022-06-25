@@ -22,7 +22,7 @@ class IC(object):
             self.particles = self.randParticles(numParticles, boxSize, seed, twoD)
         
         elif (ic == "hernquist"):
-            self.particles = hern.Hernquist(numParticles, hern_a, hern_m)
+            self.particles = hern.Hernquist(numParticles, hern_a, hern_m).particles
             
         else:
             self.particles = self.randParticles(numParticles, boxSize, seed, twoD)
