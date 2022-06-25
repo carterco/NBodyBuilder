@@ -1,7 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='N-Body Builder',
-    version='0.0.1',
-    packages=find_packages
+
+    name = "NBodyBuilder",
+    version = "1.0.2",
+    packages = find_packages()
+    
 )
