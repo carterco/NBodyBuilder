@@ -37,7 +37,7 @@ def gui():
 		"Direct Force"]
 
 	solver = tk.StringVar()
-	solver.set(options_solver[0])
+	#solver.set(options_solver[0])
 	solver_drop = tk.OptionMenu(root, solver,*options_solver,command = show_solver)
 
 
@@ -55,7 +55,7 @@ def gui():
 		"Random"
 	]
 	dist = tk.StringVar()
-	dist.set(options_dist[0])
+	#dist.set(options_dist[0])
 	dist_drop = tk.OptionMenu(root, dist,*options_dist,command = show_dist)
 
 
@@ -75,7 +75,7 @@ def gui():
 		"Leapfrog"
 	]
 	step = tk.StringVar()
-	step.set(options_step[0])
+	#step.set(options_step[0])
 	step_drop = tk.OptionMenu(root, step,*options_step,command = show_step)
 
 
@@ -87,7 +87,7 @@ def gui():
 		DT = float(dt.get())
 	dt = tk.Entry(root)
 	# Puts default text inside textbox
-	dt.insert(0, "0.01")
+	dt.insert(0, "1")
 	# Button to get timestep value
 	timestep_botton = tk.Button(root, text="Submit", command = show_timestep)
 
@@ -100,7 +100,7 @@ def gui():
 		T = float(t.get())
 	t = tk.Entry(root)
 	# Puts default text inside textbox
-	t.insert(0, "1")
+	t.insert(0, "10")
 	# Button to get timestep value
 	time_botton = tk.Button(root, text="Submit", command = show_time)
 
