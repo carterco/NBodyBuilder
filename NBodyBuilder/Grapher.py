@@ -51,7 +51,7 @@ def scatter_plot_2d(data,time):
         ax.set_ylim(-100, 100)
         ax.set_xlabel('x')
         ax.set_ylabel('y')
-        ax.set_title('t = ' + str(time[i]))
+        ax.set_title('t = {:.3f}'.format(time[i]))
         s = ax.scatter(data[i,:,1], data[i,:,2], s=25, marker="o", edgecolor='black')
 
     ani = animation.FuncAnimation(fig, animate, interval=100, frames=range(len(data)),repeat_delay = 3000)
