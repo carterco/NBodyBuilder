@@ -1,9 +1,9 @@
 import numpy as np
 import sys
-import NBodyBuilder.IC
-import NBodyBuilder.TimeStepper
-import NBodyBuilder.BH
-import NBodyBuilder.DirectForce
+import NBodyBuilder.IC as IC
+import NBodyBuilder.TimeStepper as TimeStepper
+import NBodyBuilder.BH as BH
+import NBodyBuilder.DirectForce as DirectForce
 import NBodyBuilder.Particle as part
 
 class NBodyBuilderClass(object):
