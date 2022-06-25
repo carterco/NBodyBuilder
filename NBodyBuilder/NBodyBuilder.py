@@ -131,7 +131,6 @@ def gui():
 
 
 	root.mainloop()
-	print(D,I,S)
 
 
 def non_gui():
